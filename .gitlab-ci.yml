@@ -45,3 +45,15 @@ release:generate_docs:
       - public
   only:
     - master
+    
+release:publish_crate:
+  stage: release
+  cache:
+    <<: *global_cache
+    policy: pull
+  script:
+    - cargo login $CRATE_API_TOKEN
+    - cargo publish
+  when: manual
+  only:
+    - tag
