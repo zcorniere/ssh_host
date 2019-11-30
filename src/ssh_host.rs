@@ -23,11 +23,18 @@ impl SshHost {
     ///
     /// # Examples
     ///
-    /// ```rust
+    /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
+    /// assert_eq!(val.get_name(), &String::from("hello"));
     /// assert_eq!(val.get_address(), &String::from("127.0.0.1"));
-    /// assert_eq!(val.get_port(), 22);
-    /// assert_eq!(val.get_private_key(), &PathBuf::from("private_key"));
+    /// assert_eq!(val.get_user(), &String::from("user"));
+    /// assert_eq!(val.get_port(), &22);
+    /// assert_eq!(val.get_private_key().as_ref().unwrap(), &PathBuf::from("private_key"));
+    /// assert_eq!(val.is_reachable(), &true);
+    /// assert_eq!(val.get_url(), String::from("127.0.0.1:22"));
     /// ```
     pub fn new(name: String, address: String, user: String, port: i64, private_key: Option<PathBuf>) -> SshHost {
         SshHost {
@@ -43,7 +50,10 @@ impl SshHost {
     ///
     /// # Examples
     ///
-    /// ```rust
+    /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
     /// assert_eq!(val.get_name(), &String::from("hello"));
     /// ```
@@ -54,7 +64,10 @@ impl SshHost {
     ///
     /// # Examples
     ///
-    /// ```rust
+    /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
     /// let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
     /// assert_eq!(val.get_name(), &String::from("hello"));
     /// val.set_name(String::from("foobar"));
@@ -67,7 +80,10 @@ impl SshHost {
     ///
     /// # Examples
     ///
-    /// ```rust
+    /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
     /// assert_eq!(val.get_address(), &String::from("127.0.0.1"));
     /// ```
@@ -78,8 +94,11 @@ impl SshHost {
     ///
     /// # Examples
     ///
-    /// ```rust
-    /// let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
+    /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
+    /// let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.2"), String::from("user"), 22, Some(PathBuf::from("private_key")));
     /// assert_eq!(val.get_address(), &String::from("127.0.0.2"));
     /// val.set_address(String::from("127.0.0.1"));
     /// assert_eq!(val.get_address(), &String::from("127.0.0.1"));
@@ -91,7 +110,10 @@ impl SshHost {
     ///
     /// # Examples
     ///
-    /// ```rust
+    /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
     /// assert_eq!(val.get_user(), &String::from("user"));
     /// ```
@@ -102,8 +124,11 @@ impl SshHost {
     ///
     /// # Examples
     ///
-    /// ```rust
-    /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
+    /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
+    /// let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
     /// assert_eq!(val.get_user(), &String::from("user"));
     /// val.set_user(String::from("root"));
     /// assert_eq!(val.get_user(), &String::from("root"));
@@ -115,7 +140,10 @@ impl SshHost {
     ///
     /// # Examples
     ///
-    /// ```rust
+    /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
     /// assert_eq!(val.get_port(), &22);
     /// ```
@@ -126,8 +154,11 @@ impl SshHost {
     ///
     /// # Examples
     ///
-    /// ```rust
-    /// let mut val = SshHost::new(String::from("127.0.0.1"), 22, PathBuf::from("private_key"));
+    /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
+    /// let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
     /// assert_eq!(val.get_port(), &22);
     /// val.set_port(2222);
     /// assert_eq!(val.get_port(), &2222);
@@ -139,9 +170,12 @@ impl SshHost {
     ///
     /// # Examples
     ///
-    /// ```rust
+    /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
-    /// assert_eq!(val.get_private_key(), &PathBuf::from("private_key"));
+    /// assert_eq!(val.get_private_key().as_ref().unwrap(), &PathBuf::from("private_key"));
     /// ```
     pub fn get_private_key(&self) -> &Option<PathBuf> {
         &self.private_key
@@ -150,32 +184,43 @@ impl SshHost {
     ///
     /// # Examples
     ///
-    /// ```rust
-    /// let mut val = SshHost::new(String::from("127.0.0.1"), 22, PathBuf::from("private_key"));
-    /// assert_eq!(val.get_private_key(), &PathBuf::from("private_key"));
-    /// val.set_private_key(PathBuf::from("private_key_2"));
-    /// assert_eq!(val.get_private_key(), &PathBuf::from("private_key_2"));
+    /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
+    /// let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
+    /// assert_eq!(val.get_private_key().as_ref().unwrap(), &PathBuf::from("private_key"));
+    /// val.set_private_key(Some(PathBuf::from("private_key_2")));
+    /// assert_eq!(val.get_private_key().as_ref().unwrap(), &PathBuf::from("private_key_2"));
     /// ```
     pub fn set_private_key(&mut self, new_key: Option<PathBuf>) {
         self.private_key = new_key;
     }
+    
     /// return if the remote hosts is available or not
     ///
     /// # Examples
     ///
-    /// ```rust
+    /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
     /// assert_eq!(val.is_reachable(), &true);
     /// ```
     pub fn is_reachable(&self) -> &bool {
         &self.reachable
     }
+    
     /// set the remote value
     ///
     /// # Examples
     ///
-    /// ```rust
-    /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
+    /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
+    /// let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
     /// assert_eq!(val.is_reachable(), &true);
     /// val.set_reachable(false);
     /// assert_eq!(val.is_reachable(), &false);
@@ -183,6 +228,7 @@ impl SshHost {
     pub fn set_reachable(&mut self, new_val: bool) {
         self.reachable = new_val;
     }
+    
     /// return the url of the hosts
     ///
     /// It will be in the form of `address:port` like `127.0.0.1:22`
@@ -190,6 +236,9 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
+    /// # use ssh_host::ssh_host::SshHost;
+    /// use std::path::PathBuf;
+    ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
     /// assert_eq!(val.get_url(), String::from("127.0.0.1:22"));
     /// ```
@@ -238,16 +287,16 @@ mod tests {
         assert_eq!(val.get_address(), &String::from("127.0.0.1"));
     }
     #[test]
+    fn test_get_user() {
+        let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
+        assert_eq!(val.get_user(), &String::from("user"));
+    }
+    #[test]
     fn test_set_user() {
         let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
         assert_eq!(val.get_user(), &String::from("user"));
         val.set_user(String::from("root"));
         assert_eq!(val.get_user(), &String::from("root"));
-    }
-    #[test]
-    fn test_get_user() {
-        let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
-        assert_eq!(val.get_user(), &String::from("user"));
     }
     #[test]
     fn test_get_port() {
