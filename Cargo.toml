@@ -3,6 +3,9 @@ name = "ssh_host"
 version = "0.1.0"
 authors = ["Zacharie Corniere <zacharie.corniere@epitech.eu>"]
 edition = "2018"
+description = "`ssh_host` is a simple crate holding the nessecary value to connect to a `ssh2` host."
+license = "MIT"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
