@@ -7,7 +7,7 @@ stages:
 variables:
   CARGO_HOME: $CI_PROJECT_DIR/.cargo
 
-cache: &global_cache
+.cache: &global_cache
   key: ${CI_COMMIT_REF_SLUG}
   policy: pull-push
   paths:
@@ -43,6 +43,5 @@ release:generate_docs:
     expire_in: 1 week
     paths:
       - public
-  when: manual
   only:
     - master
