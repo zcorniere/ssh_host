@@ -24,7 +24,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
@@ -51,7 +51,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
@@ -65,7 +65,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
@@ -81,7 +81,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
@@ -95,7 +95,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.2"), String::from("user"), 22, Some(PathBuf::from("private_key")));
@@ -111,7 +111,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
@@ -125,7 +125,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
@@ -141,7 +141,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
@@ -155,7 +155,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
@@ -171,7 +171,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
@@ -185,7 +185,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
@@ -202,7 +202,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
@@ -217,7 +217,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let mut val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
@@ -236,7 +236,7 @@ impl SshHost {
     /// # Examples
     ///
     /// ```
-    /// # use ssh_host::ssh_host::SshHost;
+    /// # use ssh_host::SshHost;
     /// use std::path::PathBuf;
     ///
     /// let val = SshHost::new(String::from("hello"), String::from("127.0.0.1"), String::from("user"), 22, Some(PathBuf::from("private_key")));
