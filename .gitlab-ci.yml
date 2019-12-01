@@ -44,6 +44,7 @@ release:generate_docs:
     paths:
       - public
   only:
+    - tags
     - master
     
 release:publish_crate:
@@ -56,4 +57,4 @@ release:publish_crate:
     - cargo publish
   when: manual
   only:
-    - tag
+    - tags
