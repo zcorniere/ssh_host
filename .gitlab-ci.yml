@@ -46,15 +46,15 @@ release:generate_docs:
   only:
     - tags
     - master
-    
+
 release:publish_crate:
   stage: release
   cache:
     <<: *global_cache
     policy: pull
   script:
-    - cargo login $CRATE_API_TOKEN
-    - cargo publish
+    - cargo login $(CRATE_API_TOKEN)
+    - cargo publish --allow-dirty
   when: manual
   only:
     - tags
