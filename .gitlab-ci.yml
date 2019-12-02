@@ -53,7 +53,7 @@ release:publish_crate:
     <<: *global_cache
     policy: pull
   script:
-    - cargo login $(CRATE_API_TOKEN)
+    - cargo login $CRATE_API_TOKEN
     - cargo publish --allow-dirty
   when: manual
   only:
