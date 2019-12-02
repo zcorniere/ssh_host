@@ -3,8 +3,7 @@ name = "ssh_host"
 version = "0.1.1"
 authors = ["Zacharie Corniere <zcorniere@gmail.com>"]
 edition = "2018"
-description = "`ssh_host` is a simple crate holding the nessecary value to connect to a `ssh2` host.
-This crate was designed with usage of [ssh2 crate](https://docs.rs/ssh2/0.5.0/ssh2/index.html) in mind"
+description = "`ssh_host` is a simple crate holding the nessecary value to connect to a `ssh2` host.\nThis crate was designed with usage of [ssh2 crate](https://docs.rs/ssh2/0.5.0/ssh2/index.html) in mind"
 license = "MIT"
 
 
