@@ -1,7 +1,7 @@
 [package]
 name = "ssh_host"
-version = "1.0.0"
-authors = ["Zacharie Corniere <zcorniere@gmail.com>"]
+version = "1.0.1"
+authors = ["Zacharie Corniere <cornierez@gmail.com>"]
 edition = "2018"
 description = "`ssh_host` is a simple crate holding the nessecary value to connect to a `ssh2` host."
 license = "MIT"
